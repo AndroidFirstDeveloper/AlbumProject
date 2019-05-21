@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">albumLibrary</string>
+    <string name="album_all_images">所有图片</string>
+    <string name="album_all_videos">所有视频</string>
+    <string name="album_all_images_videos">所有图片和视频</string>
+
+</resources>

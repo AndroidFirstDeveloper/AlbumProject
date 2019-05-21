@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".album.AlbumActivity"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/activity_group_toolbar"
+        layout="@layout/navigation_bar" />
+
+    <com.aspsine.swipetoloadlayout.SwipeToLoadLayout
+        android:id="@+id/activity_group_swipe_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--<com.donkingliang.groupedadapter.widget.StickyHeaderLayout-->
+        <!--android:id="@+id/activity_group_sticky"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/swipe_target"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <!--</com.donkingliang.groupedadapter.widget.StickyHeaderLayout>-->
+
+        <com.example.myapplication.refresh.LoadingView
+            android:id="@+id/swipe_load_more_footer"
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+    </com.aspsine.swipetoloadlayout.SwipeToLoadLayout>
+
+
+</LinearLayout>
