@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initSystemUI() {
         View activity_main_toolbar = findViewById(R.id.activity_main_toolbar);
         View title_bar_layout_status_view = activity_main_toolbar.findViewById(R.id.title_bar_layout_status_view);
-        ImmersionBar.with(this).statusBarView(title_bar_layout_status_view).hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR).init();
+        ImmersionBar.with(this).statusBarView(title_bar_layout_status_view).navigationBarColor(android.R.color.white).init();
     }
 
     private RecyclerView recyclerView;
