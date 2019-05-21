@@ -17,6 +17,8 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
+import com.gyf.barlibrary.BarHide;
+import com.gyf.barlibrary.ImmersionBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +33,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findVIew();
+        initSystemUI();
     }
+
 
     private void findVIew() {
         Button activity_main_select_btn = findViewById(R.id.activity_main_select_btn);
@@ -41,6 +45,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         recyclerView.setLayoutManager(new GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false));
         adapter = new MyAdapter(this, list);
         recyclerView.setAdapter(adapter);
+    }
+
+    private void initSystemUI() {
+        View activity_main_toolbar = findViewById(R.id.activity_main_toolbar);
+        View title_bar_layout_status_view = activity_main_toolbar.findViewById(R.id.title_bar_layout_status_view);
+        ImmersionBar.with(this).statusBarView(title_bar_layout_status_view).hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR).init();
     }
 
     private RecyclerView recyclerView;
@@ -56,6 +66,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra(AlbumActivity.REQUEST_CLASS_NAME, "dot.com.czl.albumproject.MainActivity");
             startActivityForResult(intent, 2000);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        ImmersionBar.with(this).destroy();
+        super.onDestroy();
+    }
+
+    public void onBack(View view) {
+        finish();
     }
 
     @Override
